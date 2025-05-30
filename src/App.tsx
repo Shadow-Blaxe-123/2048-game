@@ -9,7 +9,7 @@ function App() {
           <div>Score</div>
           <div>Best Score</div>
         </div>
-        <div className="w-1/3">New Game</div>
+        <div className="">New Game</div>
       </nav>
     </>
   );
