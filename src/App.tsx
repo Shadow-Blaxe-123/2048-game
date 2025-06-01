@@ -1,4 +1,5 @@
 import "./App.css";
+import Board from "./Board";
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
           New Game
         </div>
       </nav>
+      <div>
+        <Board />
+      </div>
     </>
   );
 }
