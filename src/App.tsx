@@ -15,7 +15,7 @@ function App() {
             <div>0</div>
           </div>
         </div>
-        <div className="p-2 text-3xl font-black text-blue-500 border-2 hover:cursor-pointer rounded-2xl hover:bg-blue-200">
+        <div className="p-2 text-3xl font-black text-blue-500 border-2 hover:cursor-pointer rounded-2xl hover:bg-blue-400 hover:text-white">
           New Game
         </div>
       </nav>
