@@ -20,7 +20,7 @@ function App() {
           New Game
         </div>
       </nav>
-      <div>
+      <div className="flex justify-center items-center min-h-screen bg-[#faf8ef]">
         <Board />
       </div>
     </>
