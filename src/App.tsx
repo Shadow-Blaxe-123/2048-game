@@ -1,7 +1,16 @@
 import "./App.css";
 import Board from "./Board";
+import { useEffect } from "react";
+import GameLogic from "./GameLogic";
 
 function App() {
+  useEffect(() => {
+    const game = new GameLogic();
+
+    return () => {
+      game.destroy(); // Clean up when component unmounts
+    };
+  }, []);
   return (
     <>
       <nav className="flex items-center justify-around m-5">
