@@ -5,7 +5,7 @@ import GameLogic from "./GameLogic";
 
 function App() {
   useEffect(() => {
-    const game = new GameLogic();
+    const game = new GameLogic(); // Create a new GameLogic instance the moment the component mounts or the page loads.
 
     return () => {
       game.destroy(); // Clean up when component unmounts
