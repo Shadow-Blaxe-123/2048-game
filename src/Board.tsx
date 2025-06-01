@@ -1,8 +1,7 @@
-import React from "react";
 import { useBoardStore } from "./store/BoardStore";
 import Tile from "./Tile";
 
-const Board: React.FC = () => {
+export default function Board() {
   const board = useBoardStore((state) => state.board);
 
   return (
@@ -14,6 +13,4 @@ const Board: React.FC = () => {
       )}
     </div>
   );
-};
-
-export default Board;
+}
