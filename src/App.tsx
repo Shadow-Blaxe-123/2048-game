@@ -9,7 +9,7 @@ function App() {
           <div className="w-1/2 text-center">Score</div>
           <div className="w-1/2 text-center">Best Score</div>
         </div>
-        <div className="text-3xl font-black text-blue-500 hover:cursor-pointer border-2 p-2 rounded-2xl">
+        <div className="text-3xl font-black text-blue-500 hover:cursor-pointer border-2 p-2 rounded-2xl hover:bg-blue-200">
           New Game
         </div>
       </nav>
