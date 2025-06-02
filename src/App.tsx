@@ -2,8 +2,10 @@ import "./App.css";
 import Board from "./Board";
 import { useEffect } from "react";
 import GameLogic from "./GameLogic";
+import { useBoardStore } from "./store/BoardStore";
 
 function App() {
+  const resetBoard = useBoardStore((state) => state.resetBoard);
   useEffect(() => {
     const game = new GameLogic(); // Create a new GameLogic instance the moment the component mounts or the page loads.
 
@@ -25,7 +27,10 @@ function App() {
             <div>0</div>
           </div>
         </div>
-        <div className="p-2 text-3xl font-black text-blue-500 border-2 hover:cursor-pointer rounded-2xl hover:bg-blue-400 hover:text-white">
+        <div
+          className="p-2 text-3xl font-black text-blue-500 border-2 hover:cursor-pointer rounded-2xl hover:bg-blue-400 hover:text-white"
+          onClick={resetBoard}
+        >
           New Game
         </div>
       </nav>
