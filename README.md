@@ -7,7 +7,7 @@ The tech used:
 * Zustand
 * Tailwindcss
   
-This is my very first tie using Zustand. The only reasonn I am using it because Redux Toolkit would be very overkill.
+This is my very first time using Zustand. The only reason I am using it is, because Redux Toolkit would be very overkill.
 I don't know how it will go. Let's see how it goes.
 
 ## Todos
@@ -25,8 +25,12 @@ I don't know how it will go. Let's see how it goes.
 
 ## Everything I learned
 
-1. So I have many things whilst I am building this project.
+So I have many things whilst I am building this project.
 
-i have learnt how to use Zustand. Its a relief that I am using it. I still remember the nightmare that my Tic Tac Toe game was when it came to the state management. Multiple components needed access to both display and change it. Finally I had just passed the states entirely to a class object as parameters and used the object to change the state.
+I have learnt how to use Zustand. Its a relief that I am using it. I still remember the nightmare that my Tic Tac Toe game was when it came to the state management. Multiple components needed access to both display and change the state. Finally I had just passed the states and setStates entirely to a class object as parameters and used the object to change the state, across the entire codebase.
 
-This is much better. I have easy acceess to both state and setState functions. Also they are all centralised in a single file. Plus I don't have to deal with the extraness of Redux Toolkit, which was my original plan, as i had some experience with it
+Therefore, this is much better. I have easy access to both state and setState functions. Also they are all centralised in a single file. Plus I don't have to deal with the extraness of Redux Toolkit, which was my original plan, as I had some experience with it. But I am liking Zustand so far.
+
+***
+
+I also learnt that AI always makes stuff too overcomplicated. I had used ChatGPT to vibe code me the Board and Tile UI. It for some reason decided to put both components in a single and made it by importing "React.FC". I told it to not add any logic but it still did it anyway. I had to spend a good amount of time fixing the slop it generated. But at least the UI looked good, even though I could made it just by copying a Youtuber because the board UI is as generic as it gets.
