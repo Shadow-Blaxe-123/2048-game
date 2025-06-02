@@ -12,8 +12,8 @@ function App() {
     };
   }, []);
   return (
-    <>
-      <nav className="flex items-center justify-around m-5">
+    <div className="flex flex-col h-screen">
+      <nav className="flex items-center justify-around p-5 bg-yellow-200">
         <div className="font-serif text-6xl font-bold text-green-800">2048</div>
         <div className="flex justify-center font-mono text-2xl font-bold text-green-500 align-middle w-xs">
           <div className="w-1/2 text-center">
@@ -29,10 +29,10 @@ function App() {
           New Game
         </div>
       </nav>
-      <div className="flex justify-center items-center min-h-screen bg-[#faf8ef]">
+      <div className="flex justify-center items-center bg-[#faf8ef] flex-1/2">
         <Board />
       </div>
-    </>
+    </div>
   );
 }
 
