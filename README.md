@@ -26,6 +26,7 @@ I don't know how it will go. Let's see how it goes.
 * Add merging Function.
 * Add Scoring Function.
 * Make BestScore keeping function
+* Add dark mode.
 * More to Come ...
 
 ## Everything I learned
