@@ -19,8 +19,10 @@ I don't know how it will go. Let's see how it goes.
 
 ### Uncompleted
 
-* Add random generator for 2 & 4 tile when site loads
+* Add random generator for 2 & 4 tile when site loads.
 * Make the rsetBoard FUnction on the store generate the board with two random tiles instead of setting them all two zeros.
+* Make the moving function in both UI and the board state 2D array.
+* Add merging Function.
 * More to Come ...
 
 ## Everything I learned
@@ -33,4 +35,4 @@ Therefore, this is much better. I have easy access to both state and setState fu
 
 ***
 
-I also learnt that AI always makes stuff too overcomplicated. I had used ChatGPT to vibe code me the Board and Tile UI. It for some reason decided to put both components in a single and made it by importing "React.FC". I told it to not add any logic but it still did it anyway. I had to spend a good amount of time fixing the slop it generated. But at least the UI looked good, even though I could made it just by copying a Youtuber because the board UI is as generic as it gets.
+I also learnt that AI always makes stuff too overcomplicated. I had used ChatGPT to vibe code me the Board and Tile UI. It for some reason decided to put both components in a single file and made it by importing "React.FC". I told it to not add any logic but it still did it anyway. I had to spend a good amount of time fixing the slop it generated. But at least the UI looked good, even though I could have made it just by copying a Youtuber because the board UI is as generic as it gets.
