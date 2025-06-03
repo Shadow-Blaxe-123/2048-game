@@ -23,6 +23,8 @@ I don't know how it will go. Let's see how it goes.
 * Make the rsetBoard FUnction on the store generate the board with two random tiles instead of setting them all two zeros.
 * Make the moving function in both UI and the board state 2D array.
 * Add merging Function.
+* Add Scoring Function.
+* Make BestScore keeping function
 * More to Come ...
 
 ## Everything I learned
