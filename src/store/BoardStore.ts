@@ -1,5 +1,6 @@
 import { create } from "zustand";
 
+// Types for the state
 type State = {
   board: number[][];
   bestScore: number;
@@ -7,6 +8,7 @@ type State = {
   UImode: string;
 };
 
+// Types for the setStateq functoins
 interface SetState {
   resetBoard: () => void;
   switchMode: () => void;
