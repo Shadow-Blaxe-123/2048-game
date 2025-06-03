@@ -4,15 +4,18 @@ type State = {
   board: number[][];
   bestScore: number;
   score: number;
+  UImode: string;
 };
 
-type SetState = {
+interface SetState {
   resetBoard: () => void;
-};
+  switchMode: () => void;
+}
 
 // Making the state.
 export const useBoardStore = create<State & SetState>((set) => ({
   // State Values:
+  UImode: "light",
   board: [
     [0, 0, 2, 0],
     [0, 0, 0, 0],
@@ -32,4 +35,8 @@ export const useBoardStore = create<State & SetState>((set) => ({
       ],
       score: 0,
     }),
+  switchMode: () =>
+    set((state) => ({
+      UImode: state.UImode === "light" ? "dark" : "light",
+    })),
 }));
