@@ -5,7 +5,7 @@ type State = {
   board: number[][];
   bestScore: number;
   score: number;
-  UImode: string;
+  UImode: "light" | "dark";
 };
 
 // Types for the setStateq functoins
