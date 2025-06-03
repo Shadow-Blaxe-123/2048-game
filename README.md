@@ -16,6 +16,7 @@ I don't know how it will go. Let's see how it goes.
 
 * Fix the scroll bug -- Done.
 * Make reset Board function -- Done
+* Make New Game Button reset the score -- Done.
 
 ### Uncompleted
 
