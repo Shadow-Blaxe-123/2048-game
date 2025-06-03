@@ -2,6 +2,8 @@ import { create } from "zustand";
 
 type State = {
   board: number[][];
+  bestScore: number;
+  score: number;
 };
 
 type SetState = {
@@ -25,4 +27,6 @@ export const useBoardStore = create<State & SetState>((set) => ({
         [0, 0, 0, 0],
       ],
     }),
+  bestScore: 0,
+  score: 0,
 }));
