@@ -3,6 +3,7 @@ type Props = {
 };
 
 export default function Tile({ value }: Props) {
+  // This function returns the color of the tile based on its value
   const getTileColor = (val: number): string => {
     const map: Record<number, string> = {
       0: "bg-[#cdc1b4]",

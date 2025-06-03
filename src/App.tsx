@@ -5,6 +5,7 @@ import GameLogic from "./GameLogic";
 import { useBoardStore } from "./store/BoardStore";
 
 function App() {
+  // Getting the resetBoard function from the store.
   const resetBoard = useBoardStore((state) => state.resetBoard);
   useEffect(() => {
     const game = new GameLogic(); // Create a new GameLogic instance the moment the component mounts or the page loads.
