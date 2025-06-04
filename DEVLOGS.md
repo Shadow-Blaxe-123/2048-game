@@ -17,3 +17,22 @@ I also learnt that AI always makes stuff too overcomplicated. I had used ChatGPT
 So durinng adding the dark mode part, I forgot how template literals work or should I say I forgot how JSX and Javascript work. I kept forgetting to add {} to make the JS/TS code to work. And I kept getting errors without knowing why. I should have actually opened the terminal to see the error, but I just googled how JS "f-strings" works.
 
 In my defense, I was working with Python for the last 3 hrs. Thats why I used the term "f-strings."
+
+## Todos
+
+### Completed
+
+- Fix the scroll bug -- Done.
+- Make reset Board function -- Done
+- Make New Game Button reset the score -- Done.
+- Add dark mode.
+
+### Uncompleted
+
+- Add random generator for 2 & 4 tile when site loads.
+- Make the rsetBoard FUnction on the store generate the board with two random tiles instead of setting them all two zeros.
+- Make the moving function in both UI and the board state 2D array.
+- Add merging Function.
+- Add Scoring Function.
+- Make BestScore keeping function
+- More to Come ...

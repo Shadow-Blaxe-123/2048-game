@@ -49,21 +49,4 @@ This project is a personal learning initiative to improve my front-end and state
 
 I've also used this project to build a habit of writing better READMEs, organizing my thoughts, and reflecting on what I learn. I'm journaling my full development process in a separate file.
 
-## Todos
 
-### Completed
-
-- Fix the scroll bug -- Done.
-- Make reset Board function -- Done
-- Make New Game Button reset the score -- Done.
-- Add dark mode.
-
-### Uncompleted
-
-- Add random generator for 2 & 4 tile when site loads.
-- Make the rsetBoard FUnction on the store generate the board with two random tiles instead of setting them all two zeros.
-- Make the moving function in both UI and the board state 2D array.
-- Add merging Function.
-- Add Scoring Function.
-- Make BestScore keeping function
-- More to Come ...
