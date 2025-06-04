@@ -17,6 +17,7 @@ I don't know how it will go. Let's see how it goes.
 * Fix the scroll bug -- Done.
 * Make reset Board function -- Done
 * Make New Game Button reset the score -- Done.
+* Add dark mode.
 
 ### Uncompleted
 
@@ -26,7 +27,6 @@ I don't know how it will go. Let's see how it goes.
 * Add merging Function.
 * Add Scoring Function.
 * Make BestScore keeping function
-* Add dark mode.
 * More to Come ...
 
 ## Everything I learned
