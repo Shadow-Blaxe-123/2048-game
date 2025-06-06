@@ -8,7 +8,8 @@ export default class GameLogic {
   constructor() {
     this.setupInput();
     this.addRandomTile();
-    this.setBoard(this.board);
+    this.addRandomTile();
+    // this.setBoard(this.board);
   }
 
   private get board(): number[][] {
@@ -79,27 +80,49 @@ export default class GameLogic {
     return workingGrid;
   }
 
-  addRandomTile(): void {
-    const emptyTiles: [number, number][] = [];
-    const grid: number[][] = this.board;
+  // addRandomTile(): void {
+  //   const emptyTiles: [number, number][] = [];
+  //   const grid: number[][] = this.board;
 
-    // Find all empty tiles (where the value is 0)
-    for (let row = 0; row < grid.length; row++) {
-      for (let col = 0; col < grid[row].length; col++) {
-        if (grid[row][col] === 0) {
+  //   // Find all empty tiles (where the value is 0)
+  //   for (let row = 0; row < grid.length; row++) {
+  //     for (let col = 0; col < grid[row].length; col++) {
+  //       if (grid[row][col] === 0) {
+  //         emptyTiles.push([row, col]);
+  //       }
+  //     }
+  //   }
+
+  //   if (emptyTiles.length === 0) return; // No empty tiles, do nothing
+
+  //   // Pick a random empty position
+  //   const [randRow, randCol] =
+  //     emptyTiles[Math.floor(Math.random() * emptyTiles.length)];
+
+  //   // 50% chance for 2, 50% chance for 4
+  //   grid[randRow][randCol] = Math.random() < 0.5 ? 2 : 4;
+  // }
+
+  addRandomTile(): void {
+    const currentBoard = _.cloneDeep(this.board); // 🟢 clone before doing anything
+    const emptyTiles: [number, number][] = [];
+
+    for (let row = 0; row < currentBoard.length; row++) {
+      for (let col = 0; col < currentBoard[row].length; col++) {
+        if (currentBoard[row][col] === 0) {
           emptyTiles.push([row, col]);
         }
       }
     }
 
-    if (emptyTiles.length === 0) return; // No empty tiles, do nothing
+    if (emptyTiles.length === 0) return;
 
-    // Pick a random empty position
     const [randRow, randCol] =
       emptyTiles[Math.floor(Math.random() * emptyTiles.length)];
 
-    // 50% chance for 2, 50% chance for 4
-    grid[randRow][randCol] = Math.random() < 0.5 ? 2 : 4;
+    currentBoard[randRow][randCol] = Math.random() < 0.5 ? 2 : 4;
+
+    this.setBoard(currentBoard);
   }
 
   // Adding Event Listener for keyboard presses.
@@ -121,8 +144,8 @@ export default class GameLogic {
 
       const direction = keyMap[e.key];
       if (direction) {
-        this.addRandomTile();
         this.setBoard(this.moveGrid(direction));
+        this.addRandomTile();
       }
     }
   };
@@ -130,5 +153,6 @@ export default class GameLogic {
   // Removes the event listener.
   destroy(): void {
     window.removeEventListener("keydown", this.handleKeyDown);
+    useBoardStore.getState().resetBoard();
   }
 }
