@@ -32,8 +32,6 @@ function App() {
 
     if (!gameRef.current) {
       gameRef.current = new GameLogic(); // ← only runs once!
-      gameRef.current.addRandomTile();
-      gameRef.current.addRandomTile();
     }
 
     return () => {
