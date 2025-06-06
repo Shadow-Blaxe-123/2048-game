@@ -1,6 +1,6 @@
 import "./App.css";
 import Board from "./Board";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import GameLogic from "./GameLogic";
 import { useBoardStore } from "./store/BoardStore";
 
@@ -8,11 +8,38 @@ function App() {
   // Getting the state from the store.
   const state = useBoardStore((state) => state);
 
+  // useEffect(() => {
+  //   // Intializing game object on mount
+  //   const game = new GameLogic();
+  //   return () => {
+  //     game.destroy(); // remove listeners on unmount
+  //   };
+  // }, []);
+
+  // useEffect(() => {
+  //   console.log("GameLogic useEffect mount");
+  //   const game = new GameLogic();
+  //   return () => {
+  //     console.log("GameLogic useEffect unmount");
+  //     game.destroy();
+  //   };
+  // }, []);
+
+  const gameRef = useRef<GameLogic | null>(null);
+
   useEffect(() => {
-    // Intializing game object on mount
-    const game = new GameLogic();
+    console.log("App useEffect mount");
+
+    if (!gameRef.current) {
+      gameRef.current = new GameLogic(); // ← only runs once!
+      gameRef.current.addRandomTile();
+      gameRef.current.addRandomTile();
+    }
+
     return () => {
-      game.destroy(); // remove listeners on unmount
+      console.log("App useEffect unmount");
+      gameRef.current?.destroy();
+      gameRef.current = null;
     };
   }, []);
 
