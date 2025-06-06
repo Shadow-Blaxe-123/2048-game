@@ -17,7 +17,7 @@ export default class GameLogic {
    * Move left helper — slides and merges one row to the left.
    * Mutates the row array in place.
    */
-  moveLeft(row: number[]): number[] {
+  private moveLeft(row: number[]): number[] {
     const size = 4;
     const filtered = row.filter((x) => x !== 0); // remove zeros
 
@@ -47,7 +47,7 @@ export default class GameLogic {
    * Moves the grid in the specified direction.
    * Returns a **new grid** without mutating the original.
    */
-  moveGrid(direction: Direction): number[][] {
+  private moveGrid(direction: Direction): number[][] {
     let workingGrid = _.cloneDeep(this.board); // deep copy to avoid mutation
 
     // For up/down, transpose the grid to work with rows

@@ -21,7 +21,7 @@ export const useBoardStore = create<State & SetState>((set) => ({
   UImode: "light",
   board: [
     [0, 0, 2, 2],
-    [0, 0, 0, 0],
+    [0, 32, 0, 0],
     [0, 0, 32, 0],
     [0, 0, 0, 0],
   ],
