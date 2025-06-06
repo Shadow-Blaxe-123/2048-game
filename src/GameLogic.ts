@@ -4,11 +4,8 @@ import { useBoardStore } from "./store/BoardStore";
 type Direction = "left" | "right" | "up" | "down";
 
 export default class GameLogic {
-  // private board: number[][] = useBoardStore.getState().board;
   private setBoard = useBoardStore.getState().setBoard;
   constructor() {
-    // this.board = board;
-    // this.setBoard = setBoard;
     this.setupInput();
     this.addRandomTile();
     this.setBoard(this.board);
