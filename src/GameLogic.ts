@@ -3,8 +3,8 @@ import _ from "lodash";
 type Direction = "left" | "right" | "up" | "down";
 
 export default class GameLogic {
-  board: number[][];
-  setBoard: (board: number[][]) => void;
+  private board: number[][];
+  private setBoard: (board: number[][]) => void;
   constructor(board: number[][], setBoard: (board: number[][]) => void) {
     this.board = board;
     this.setBoard = setBoard;
