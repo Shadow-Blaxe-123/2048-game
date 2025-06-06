@@ -48,5 +48,3 @@ npm run dev
 This project is a personal learning initiative to improve my front-end and state management skills. Zustand has been a surprisingly clean and simple alternative to Redux Toolkit. Compared to my previous Tic Tac Toe project where I had to awkwardly manage state through props and class objects, Zustand made shared state across components much easier to handle.
 
 I've also used this project to build a habit of writing better READMEs, organizing my thoughts, and reflecting on what I learn. I'm journaling my full development process in a separate file.
-
-
