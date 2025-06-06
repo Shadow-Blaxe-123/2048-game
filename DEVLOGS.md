@@ -18,6 +18,22 @@ So durinng adding the dark mode part, I forgot how template literals work or sho
 
 In my defense, I was working with Python for the last 3 hrs. Thats why I used the term "f-strings."
 
+***
+
+## React is such a pain in the back
+
+So when implementing the random tiles generation, I had just called the **addRandomTile** function just once. Despite that the board was generating two tiles. I could have just left it that especially as I used AI to make the function, its probabily smarter than me but a hunch kept making me want to investigate. I spent **hours** trying to isolate the reason. I was starting to doubt myself even though I implemented all the changes AI said to fix the issue. I had to change the entire codebase multiple times.
+
+Then AI tried to gaslit me into thinking I was calling the function multiple times. But NO.Then finally when doing old-fashioned console.log did I find that my **App** component was being mounted > unmounted > mounted, this where the bug was.
+
+After checking with ChatGPT, I learnt its something that **ReactStrictMode** does during development. Its suppossed to be a helpful feature. But it was ruining my project. During production, there would be only one tile generated, so I just had to deal with the game generating 4 tiles during deveelopment whilst trusting the production would work.
+
+I tried to get AI to solve the bug but nooo, the best it could come up was to disable **StrictMode**. I was ready to give up.
+
+FInally, I had an epiphany and just called the **resetBoard** function during unmounting. This fixed the bug on dev end while also making sure that it would not happen in prod either.
+
+So, I learned to trust my own Dev instincts over AI from this debacle. The AI insisted multiple times that the code was perfect. i went even as far as to paste the entire codebase to ChatGPT to debug it. It told me the real reason only when I stood my ground and commanded it to accept that there was only two calls to the randomGenerator, once when an arrow key is pressed, while the other is in the **constructor**.
+
 ## Todos
 
 ### Completed
@@ -26,13 +42,13 @@ In my defense, I was working with Python for the last 3 hrs. Thats why I used th
 - Make reset Board function -- Done
 - Make New Game Button reset the score -- Done.
 - Add dark mode.
+- Add random generator for 2 & 4 tile when site loads.
+- Add merging Function.
 
 ### Uncompleted
 
-- Add random generator for 2 & 4 tile when site loads.
 - Make the rsetBoard FUnction on the store generate the board with two random tiles instead of setting them all two zeros.
 - Make the moving function in both UI and the board state 2D array.
-- Add merging Function.
 - Add Scoring Function.
 - Make BestScore keeping function
 - More to Come ...
