@@ -9,9 +9,10 @@ type State = {
 };
 
 // Types for the setStateq functoins
-interface SetState {
+export interface SetState {
   resetBoard: () => void;
   switchMode: () => void;
+  setBoard: (board: number[][]) => void;
 }
 
 // Making the state.
@@ -19,7 +20,7 @@ export const useBoardStore = create<State & SetState>((set) => ({
   // State Values:
   UImode: "light",
   board: [
-    [0, 0, 2, 0],
+    [0, 0, 2, 2],
     [0, 0, 0, 0],
     [0, 0, 32, 0],
     [0, 0, 0, 0],
@@ -27,6 +28,8 @@ export const useBoardStore = create<State & SetState>((set) => ({
   bestScore: 0,
   score: 0,
   // SetState Functions:
+  setBoard: (board: number[][]) => set({ board }),
+
   resetBoard: () =>
     set({
       board: [
