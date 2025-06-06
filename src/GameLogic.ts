@@ -86,8 +86,6 @@ export default class GameLogic {
     const arrowKeys = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
     // Chacks if the pressed key is an arrow key.
     if (arrowKeys.includes(e.key)) {
-      console.log("Pressed:", e.key);
-
       const keyMap: Record<string, Direction> = {
         ArrowUp: "up",
         ArrowDown: "down",
