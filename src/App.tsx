@@ -7,13 +7,49 @@ import { useBoardStore } from "./store/BoardStore";
 function App() {
   // Getting the state from the store.
   const state = useBoardStore((state) => state);
+  // useEffect(() => {
+  //   const game = new GameLogic(state.board, state.setBoard); // Create a new GameLogic instance the moment the component mounts or the page loads.
+  //   game.addRandomTile();
+
+  //   return () => {
+  //     game.destroy(); // Clean up when component unmounts
+  //   };
+  // }, [state.board, state.setBoard]);
+
+  // const game = new GameLogic(state.board, state.setBoard); // Create a new GameLogic instance the moment the component mounts or the page loads.
+  // useEffect(() => {
+  //   game.addRandomTile();
+  //   return () => {
+  //     game.destroy(); // Clean up when component unmounts
+  //   };
+  // }, [game]);
+
+  // useEffect(() => {
+  //   const game = new GameLogic();
+  //   // console.log(useBoardStore.getState());
+  //   game.addRandomTile();
+
+  //   // game attaches its own keydown listeners internally
+
+  //   return () => {
+  //     game.destroy(); // remove listeners on unmount
+  //   };
+  // }, []); // run once
+
   useEffect(() => {
-    const game = new GameLogic(state.board, state.setBoard); // Create a new GameLogic instance the moment the component mounts or the page loads.
+    const game = new GameLogic();
+
+    // Add two random tiles to start the game
+    // game.addRandomTile();
+    // game.addRandomTile();
+
+    // game attaches its own keydown listeners internally
 
     return () => {
-      game.destroy(); // Clean up when component unmounts
+      game.destroy(); // remove listeners on unmount
     };
-  }, [state.board, state.setBoard]);
+  }, []);
+
   return (
     <div className="flex flex-col h-screen">
       <nav
