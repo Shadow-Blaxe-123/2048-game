@@ -1,14 +1,21 @@
 import _ from "lodash";
+import { useBoardStore } from "./store/BoardStore";
 
 type Direction = "left" | "right" | "up" | "down";
 
 export default class GameLogic {
-  private board: number[][];
-  private setBoard: (board: number[][]) => void;
-  constructor(board: number[][], setBoard: (board: number[][]) => void) {
-    this.board = board;
-    this.setBoard = setBoard;
+  // private board: number[][] = useBoardStore.getState().board;
+  private setBoard = useBoardStore.getState().setBoard;
+  constructor() {
+    // this.board = board;
+    // this.setBoard = setBoard;
     this.setupInput();
+    this.addRandomTile();
+    this.setBoard(this.board);
+  }
+
+  private get board(): number[][] {
+    return useBoardStore.getState().board;
   }
 
   // ChatGPT
@@ -72,8 +79,30 @@ export default class GameLogic {
     if (direction === "up" || direction === "down") {
       workingGrid = _.zip(...workingGrid) as number[][];
     }
-
     return workingGrid;
+  }
+
+  addRandomTile(): void {
+    const emptyTiles: [number, number][] = [];
+    const grid: number[][] = this.board;
+
+    // Find all empty tiles (where the value is 0)
+    for (let row = 0; row < grid.length; row++) {
+      for (let col = 0; col < grid[row].length; col++) {
+        if (grid[row][col] === 0) {
+          emptyTiles.push([row, col]);
+        }
+      }
+    }
+
+    if (emptyTiles.length === 0) return; // No empty tiles, do nothing
+
+    // Pick a random empty position
+    const [randRow, randCol] =
+      emptyTiles[Math.floor(Math.random() * emptyTiles.length)];
+
+    // 50% chance for 2, 50% chance for 4
+    grid[randRow][randCol] = Math.random() < 0.5 ? 2 : 4;
   }
 
   // Adding Event Listener for keyboard presses.
@@ -95,6 +124,7 @@ export default class GameLogic {
 
       const direction = keyMap[e.key];
       if (direction) {
+        this.addRandomTile();
         this.setBoard(this.moveGrid(direction));
       }
     }
