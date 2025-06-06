@@ -1,6 +1,6 @@
 # 2048 Game Clone
 
-A clone of the classic 2048 game, built using **React**, **TypeScript**, **Zustand**, **Tailwind CSS**, and **Vite**.
+A clone of the classic 2048 game.
 
 This project is a sandbox for practicing front-end skills and experimenting with modern state management in React. It’s also my first time using Zustand — chosen because Redux Toolkit felt like overkill for a game of this scale.
 
