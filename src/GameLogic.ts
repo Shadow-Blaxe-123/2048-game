@@ -80,29 +80,6 @@ export default class GameLogic {
     return workingGrid;
   }
 
-  // addRandomTile(): void {
-  //   const emptyTiles: [number, number][] = [];
-  //   const grid: number[][] = this.board;
-
-  //   // Find all empty tiles (where the value is 0)
-  //   for (let row = 0; row < grid.length; row++) {
-  //     for (let col = 0; col < grid[row].length; col++) {
-  //       if (grid[row][col] === 0) {
-  //         emptyTiles.push([row, col]);
-  //       }
-  //     }
-  //   }
-
-  //   if (emptyTiles.length === 0) return; // No empty tiles, do nothing
-
-  //   // Pick a random empty position
-  //   const [randRow, randCol] =
-  //     emptyTiles[Math.floor(Math.random() * emptyTiles.length)];
-
-  //   // 50% chance for 2, 50% chance for 4
-  //   grid[randRow][randCol] = Math.random() < 0.5 ? 2 : 4;
-  // }
-
   addRandomTile(): void {
     const currentBoard = _.cloneDeep(this.board); // 🟢 clone before doing anything
     const emptyTiles: [number, number][] = [];

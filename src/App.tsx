@@ -7,24 +7,6 @@ import { useBoardStore } from "./store/BoardStore";
 function App() {
   // Getting the state from the store.
   const state = useBoardStore((state) => state);
-
-  // useEffect(() => {
-  //   // Intializing game object on mount
-  //   const game = new GameLogic();
-  //   return () => {
-  //     game.destroy(); // remove listeners on unmount
-  //   };
-  // }, []);
-
-  // useEffect(() => {
-  //   console.log("GameLogic useEffect mount");
-  //   const game = new GameLogic();
-  //   return () => {
-  //     console.log("GameLogic useEffect unmount");
-  //     game.destroy();
-  //   };
-  // }, []);
-
   const gameRef = useRef<GameLogic | null>(null);
 
   useEffect(() => {
@@ -62,7 +44,11 @@ function App() {
         <div>
           <button
             className="p-2 text-3xl font-black text-blue-500 border-2 hover:cursor-pointer rounded-2xl hover:bg-blue-400 hover:text-white"
-            onClick={state.resetBoard}
+            onClick={() => {
+              state.resetBoard();
+              gameRef.current?.addRandomTile();
+              gameRef.current?.addRandomTile();
+            }}
           >
             New Game
           </button>
