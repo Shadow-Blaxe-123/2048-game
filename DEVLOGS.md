@@ -53,5 +53,6 @@ So, I learned to trust my own Dev instincts over AI from this debacle. The AI in
 - Make BestScore keeping function.
 - Make BestScore persist.
 - Add CheckMoves function.
+- Make the EventListener to keyUp -- At the very last
 - More to Come ...
 - remove console.logs

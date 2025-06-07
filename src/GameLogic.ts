@@ -115,10 +115,7 @@ export default class GameLogic {
 
   private handleKeyDown = (e: KeyboardEvent) => {
     const arrowKeys = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
-    if (this.isGameOver()) {
-      alert("Game Over!");
-      this.destroy();
-    }
+    this.isGameOver();
     // Chacks if the pressed key is an arrow key.
     if (arrowKeys.includes(e.key)) {
       const keyMap: Record<string, Direction> = {
@@ -162,6 +159,8 @@ export default class GameLogic {
     }
 
     // No empty cells and no possible merges
+    alert("Game Over!");
+    this.destroy();
     return true;
   }
 
