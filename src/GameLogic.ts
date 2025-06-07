@@ -8,8 +8,6 @@ export default class GameLogic {
   private static eventListenerAdded = false;
   private static objectInstantiated = false;
   constructor() {
-    // this.setupInput();
-    // this.startNewGame();
     if (!GameLogic.objectInstantiated) {
       GameLogic.objectInstantiated = true;
       this.setupInput();
