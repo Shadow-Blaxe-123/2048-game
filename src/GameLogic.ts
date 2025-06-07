@@ -133,7 +133,7 @@ export default class GameLogic {
       }
     }
   };
-
+  // Self-explanatory
   public startNewGame = (): void => {
     useBoardStore.getState().resetBoard();
     console.log("New Game");
