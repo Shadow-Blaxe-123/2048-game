@@ -5,9 +5,17 @@ type Direction = "left" | "right" | "up" | "down";
 
 export default class GameLogic {
   private setBoard = useBoardStore.getState().setBoard;
+  private static eventListenerAdded = false;
+  private static objectInstantiated = false;
   constructor() {
-    this.setupInput();
-    this.startNewGame();
+    // this.setupInput();
+    // this.startNewGame();
+    if (!GameLogic.objectInstantiated) {
+      GameLogic.objectInstantiated = true;
+      this.setupInput();
+      this.startNewGame();
+    }
+    if (!GameLogic.eventListenerAdded) this.setupInput();
   }
 
   // Getter for the board.
@@ -103,6 +111,7 @@ export default class GameLogic {
   // Adding Event Listener for keyboard presses.
   private setupInput(): void {
     window.addEventListener("keydown", this.handleKeyDown);
+    GameLogic.eventListenerAdded = true;
   }
   // The callback for the event listener.
 
@@ -136,7 +145,12 @@ export default class GameLogic {
 
   // Removes the event listener.
   destroy(): void {
-    window.removeEventListener("keydown", this.handleKeyDown);
-    useBoardStore.getState().resetBoard();
+    // window.removeEventListener("keydown", this.handleKeyDown);
+    // useBoardStore.getState().resetBoard();
+    if (GameLogic.eventListenerAdded) {
+      window.removeEventListener("keydown", this.handleKeyDown);
+      useBoardStore.getState().resetBoard();
+      GameLogic.eventListenerAdded = false;
+    }
   }
 }
