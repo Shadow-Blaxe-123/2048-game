@@ -54,3 +54,4 @@ So, I learned to trust my own Dev instincts over AI from this debacle. The AI in
 - Make BestScore persist.
 - Add CheckMoves function.
 - More to Come ...
+- remove console.logs
