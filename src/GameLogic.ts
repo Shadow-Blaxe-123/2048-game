@@ -5,12 +5,12 @@ type Direction = "left" | "right" | "up" | "down";
 
 export default class GameLogic {
   private setBoard = useBoardStore.getState().setBoard;
+  // Making Sure that the event listener && startNewGame() is only added once.
   private static eventListenerAdded = false;
   private static objectInstantiated = false;
   constructor() {
     if (!GameLogic.objectInstantiated) {
       GameLogic.objectInstantiated = true;
-      this.setupInput();
       this.startNewGame();
     }
     if (!GameLogic.eventListenerAdded) this.setupInput();
