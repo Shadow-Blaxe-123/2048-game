@@ -38,17 +38,17 @@ So, I learned to trust my own Dev instincts over AI from this debacle. The AI in
 
 ### Completed
 
-- Fix the scroll bug -- Done.
-- Make reset Board function -- Done
-- Make New Game Button reset the score -- Done.
+- Fix the scroll bug.
+- Make reset Board function.
+- Make New Game Button reset the score.
 - Add dark mode.
 - Add random generator for 2 & 4 tile when site loads.
 - Add merging Function.
+- Make the moving function in both UI and the board state 2D array.
+- Make the newButton generate board with two random tiles instead of blank board.
 
 ### Uncompleted
 
-- Make the rsetBoard FUnction on the store generate the board with two random tiles instead of setting them all two zeros.
-- Make the moving function in both UI and the board state 2D array.
 - Add Scoring Function.
 - Make BestScore keeping function
 - More to Come ...
