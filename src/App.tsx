@@ -44,11 +44,7 @@ function App() {
         <div>
           <button
             className="p-2 text-3xl font-black text-blue-500 border-2 hover:cursor-pointer rounded-2xl hover:bg-blue-400 hover:text-white"
-            onClick={() => {
-              state.resetBoard();
-              gameRef.current?.addRandomTile();
-              gameRef.current?.addRandomTile();
-            }}
+            onClick={gameRef.current?.startNewGame}
           >
             New Game
           </button>

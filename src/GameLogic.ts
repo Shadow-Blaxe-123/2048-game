@@ -7,16 +7,13 @@ export default class GameLogic {
   private setBoard = useBoardStore.getState().setBoard;
   constructor() {
     this.setupInput();
-    this.addRandomTile();
-    this.addRandomTile();
-    // this.setBoard(this.board);
+    this.startNewGame();
   }
 
+  // Getter for the board.
   private get board(): number[][] {
     return useBoardStore.getState().board;
   }
-
-  // ChatGPT
 
   /**
    * Move left helper — slides and merges one row to the left.
@@ -80,7 +77,8 @@ export default class GameLogic {
     return workingGrid;
   }
 
-  addRandomTile(): void {
+  // Adds Random Tile
+  private addRandomTile(): void {
     const currentBoard = _.cloneDeep(this.board); // 🟢 clone before doing anything
     const emptyTiles: [number, number][] = [];
 
@@ -125,6 +123,15 @@ export default class GameLogic {
         this.addRandomTile();
       }
     }
+  };
+
+  public startNewGame = (): void => {
+    useBoardStore.getState().resetBoard();
+    console.log("New Game");
+    setTimeout(() => {
+      this.addRandomTile();
+      this.addRandomTile();
+    }, 100);
   };
 
   // Removes the event listener.
