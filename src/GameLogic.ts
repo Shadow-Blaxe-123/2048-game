@@ -115,6 +115,10 @@ export default class GameLogic {
 
   private handleKeyDown = (e: KeyboardEvent) => {
     const arrowKeys = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
+    if (this.isGameOver()) {
+      alert("Game Over!");
+      this.destroy();
+    }
     // Chacks if the pressed key is an arrow key.
     if (arrowKeys.includes(e.key)) {
       const keyMap: Record<string, Direction> = {
@@ -140,6 +144,26 @@ export default class GameLogic {
       this.addRandomTile();
     }, 100);
   };
+  // Checks if the game is over
+  private isGameOver(): boolean {
+    const board = this.board;
+
+    // 1. If any cell is 0 → not game over
+    for (let row = 0; row < 4; row++) {
+      for (let col = 0; col < 4; col++) {
+        if (board[row][col] === 0) return false;
+
+        // 2. Check right neighbor
+        if (col < 3 && board[row][col] === board[row][col + 1]) return false;
+
+        // 3. Check bottom neighbor
+        if (row < 3 && board[row][col] === board[row + 1][col]) return false;
+      }
+    }
+
+    // No empty cells and no possible merges
+    return true;
+  }
 
   // Removes the event listener.
   destroy(): void {
@@ -147,7 +171,7 @@ export default class GameLogic {
     // useBoardStore.getState().resetBoard();
     if (GameLogic.eventListenerAdded) {
       window.removeEventListener("keydown", this.handleKeyDown);
-      useBoardStore.getState().resetBoard();
+      // useBoardStore.getState().resetBoard();
       GameLogic.eventListenerAdded = false;
     }
   }
