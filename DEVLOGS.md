@@ -47,13 +47,13 @@ So, I learned to trust my own Dev instincts over AI from this debacle. The AI in
 - Make the moving function in both UI and the board state 2D array.
 - Make the newButton generate board with two random tiles instead of blank board.
 - Add CheckMoves function.
-
-### Uncompleted
-
 - Add Scoring Function.
 - Make BestScore keeping function.
 - Add CheckWIn() function
 - Make BestScore persist.
+
+### Uncompleted
+
 - Make the EventListener to keyUp -- At the very last
 - More to Come ...
 - remove console.logs
