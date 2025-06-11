@@ -26,12 +26,13 @@ export default class GameLogic {
    * Move left helper — slides and merges one row to the left.
    * Mutates the row array in place.
    */
-  private moveLeft(row: number[]): number[] {
+  private moveLeft(row: number[]) {
     const size = 4;
     const filtered = row.filter((x) => x !== 0); // remove zeros
 
     const merged: number[] = [];
-    let skip = false;
+    let scoreGained: number = 0;
+    let skip: boolean = false;
 
     for (let i = 0; i < filtered.length; i++) {
       if (skip) {
@@ -39,7 +40,9 @@ export default class GameLogic {
         continue;
       }
       if (filtered[i] === filtered[i + 1]) {
-        merged.push(filtered[i] * 2);
+        const mergedValue: number = filtered[i] * 2;
+        merged.push(mergedValue);
+        scoreGained += mergedValue;
         skip = true; // skip next item because merged
       } else {
         merged.push(filtered[i]);
@@ -49,7 +52,10 @@ export default class GameLogic {
     // fill the rest with zeros
     while (merged.length < size) merged.push(0);
 
-    return merged;
+    return {
+      newRow: merged,
+      scoreGained,
+    };
   }
 
   /**
@@ -58,6 +64,7 @@ export default class GameLogic {
    */
   private moveGrid(direction: Direction): number[][] {
     let workingGrid = _.cloneDeep(this.board); // deep copy to avoid mutation
+    let totalScore: number = 0;
 
     // For up/down, transpose the grid to work with rows
     if (direction === "up" || direction === "down") {
@@ -70,7 +77,12 @@ export default class GameLogic {
     }
 
     // Move left on each row
-    workingGrid = workingGrid.map((row) => this.moveLeft(row));
+    // workingGrid = workingGrid.map((row) => this.moveLeft(row));
+    workingGrid = workingGrid.map((row) => {
+      const { newRow, scoreGained } = this.moveLeft(row);
+      totalScore += scoreGained;
+      return newRow;
+    });
 
     // Reverse back if right/down
     if (direction === "right" || direction === "down") {
@@ -81,6 +93,7 @@ export default class GameLogic {
     if (direction === "up" || direction === "down") {
       workingGrid = _.zip(...workingGrid) as number[][];
     }
+    useBoardStore.getState().increaseScore(totalScore);
     return workingGrid;
   }
 
@@ -117,6 +130,8 @@ export default class GameLogic {
   private handleKeyDown = (e: KeyboardEvent) => {
     const arrowKeys = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
     this.isGameOver();
+    useBoardStore.getState().setBestScore();
+
     // Chacks if the pressed key is an arrow key.
     if (arrowKeys.includes(e.key)) {
       const keyMap: Record<string, Direction> = {
@@ -161,7 +176,8 @@ export default class GameLogic {
 
     // No empty cells and no possible merges
     alert("Game Over!");
-    this.destroy();
+    // this.destroy();
+    // this.startNewGame();
     // useBoardStore.getState().setGameOver();
     return true;
   }
