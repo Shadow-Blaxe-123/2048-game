@@ -53,7 +53,8 @@ So, I learned to trust my own Dev instincts over AI from this debacle. The AI in
 - Make BestScore persist.
 - Make the EventListener to keyUp -- At the very last
 - More to Come ...
-
-### Uncompleted
-
 - remove console.logs
+
+## Epilogue
+
+Well I am done with the project. It still lacks some polish. Just some animations and a bug where when game is finished it automatically destroys the event listeners, so "New Game" button has to pressed or reload the page. But honestly I am  bored with this project. The game has all the essential functionalities and is completely playable.
