@@ -77,7 +77,6 @@ export default class GameLogic {
     }
 
     // Move left on each row
-    // workingGrid = workingGrid.map((row) => this.moveLeft(row));
     workingGrid = workingGrid.map((row) => {
       const { newRow, scoreGained } = this.moveLeft(row);
       totalScore += scoreGained;
@@ -184,11 +183,8 @@ export default class GameLogic {
 
   // Removes the event listener.
   destroy(): void {
-    // window.removeEventListener("keydown", this.handleKeyDown);
-    // useBoardStore.getState().resetBoard();
     if (GameLogic.eventListenerAdded) {
       window.removeEventListener("keydown", this.handleKeyDown);
-      // useBoardStore.getState().resetBoard();
       GameLogic.eventListenerAdded = false;
     }
   }
