@@ -122,7 +122,7 @@ export default class GameLogic {
 
   // Adding Event Listener for keyboard presses.
   private setupInput(): void {
-    window.addEventListener("keydown", this.handleKeyDown);
+    window.addEventListener("keyup", this.handleKeyDown);
     GameLogic.eventListenerAdded = true;
   }
   // The callback for the event listener.
