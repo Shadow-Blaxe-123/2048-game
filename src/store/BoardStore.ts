@@ -14,6 +14,9 @@ export interface SetState {
   resetBoard: () => void;
   switchMode: () => void;
   setBoard: (board: number[][]) => void;
+  increaseScore: (points: number) => void;
+  setBestScore: () => void;
+  // setScore: (score: number) => void;
   // setGameOver: () => void;
 }
 
@@ -48,5 +51,23 @@ export const useBoardStore = create<State & SetState>((set) => ({
     set((state) => ({
       UImode: state.UImode === "light" ? "dark" : "light",
     })),
+  increaseScore: (points: number) =>
+    set((state) => ({
+      score: state.score + points,
+    })),
+  // setBestScore: () =>
+  // set((state) => ({
+  //   if (state.score > state.bestScore) {
+  //     bestScore: state.score
+
+  //   }
+  // }))
+  setBestScore: () =>
+    set((state) => {
+      if (state.score > state.bestScore) {
+        return { bestScore: state.score };
+      }
+      return {}; // No update if not greater
+    }),
   // setGameOver: () => set({ gameOver: true }),
 }));
