@@ -1,6 +1,5 @@
 import _ from "lodash";
 import { useBoardStore } from "./store/BoardStore";
-// import { use } from "react";
 
 type Direction = "left" | "right" | "up" | "down";
 
