@@ -1,5 +1,6 @@
 import _ from "lodash";
 import { useBoardStore } from "./store/BoardStore";
+// import { use } from "react";
 
 type Direction = "left" | "right" | "up" | "down";
 
@@ -161,6 +162,7 @@ export default class GameLogic {
     // No empty cells and no possible merges
     alert("Game Over!");
     this.destroy();
+    // useBoardStore.getState().setGameOver();
     return true;
   }
 
