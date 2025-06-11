@@ -6,7 +6,6 @@ type State = {
   bestScore: number;
   score: number;
   UImode: "light" | "dark";
-  // gameOver: boolean;
 };
 
 // Types for the setStateq functoins
@@ -16,8 +15,6 @@ export interface SetState {
   setBoard: (board: number[][]) => void;
   increaseScore: (points: number) => void;
   setBestScore: () => void;
-  // setScore: (score: number) => void;
-  // setGameOver: () => void;
 }
 
 // Making the state.
@@ -45,7 +42,6 @@ export const useBoardStore = create<State & SetState>((set) => ({
         [0, 0, 0, 0],
       ],
       score: 0,
-      // gameOver: false,
     }),
   switchMode: () =>
     set((state) => ({
@@ -55,13 +51,6 @@ export const useBoardStore = create<State & SetState>((set) => ({
     set((state) => ({
       score: state.score + points,
     })),
-  // setBestScore: () =>
-  // set((state) => ({
-  //   if (state.score > state.bestScore) {
-  //     bestScore: state.score
-
-  //   }
-  // }))
   setBestScore: () =>
     set((state) => {
       if (state.score > state.bestScore) {
@@ -69,5 +58,4 @@ export const useBoardStore = create<State & SetState>((set) => ({
       }
       return {}; // No update if not greater
     }),
-  // setGameOver: () => set({ gameOver: true }),
 }));
